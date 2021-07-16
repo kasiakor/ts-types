@@ -10,6 +10,7 @@ let myNumber = newResult;
 //console.log(myNumber.toFixed(2));
 //DECLARE ANY TYPE
 // Parameter 'amount' implicitly has an 'any' type.
+// explicit use of any
 function calcTax(amount) {
     return `$${(amount * 1.2).toFixed(2)}`;
 }

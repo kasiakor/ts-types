@@ -17,7 +17,8 @@ let myNumber: number = newResult;
 
 //DECLARE ANY TYPE
 // Parameter 'amount' implicitly has an 'any' type.
-function calcTax(amount): any {
+// explicit use of any
+function calcTax(amount: any): any {
     return `$${(amount * 1.2).toFixed(2)}`;
 }
 
