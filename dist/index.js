@@ -9,6 +9,7 @@ let myNumber = newResult;
 //TypeError: myNumber.toFixed is not a function
 //console.log(myNumber.toFixed(2));
 //DECLARE ANY TYPE
+// Parameter 'amount' implicitly has an 'any' type.
 function calcTax(amount) {
     return `$${(amount * 1.2).toFixed(2)}`;
 }
@@ -18,3 +19,4 @@ let halfTax = fullTax / 2;
 let stringVal = calcTax("Bob");
 //NaN
 console.log(stringVal);
+console.log(`Price is ${price}, full tax is ${fullTax}, and now half tax is ${halfTax}`);
