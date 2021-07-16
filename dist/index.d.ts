@@ -1,5 +1,7 @@
-declare let myVar: any;
-declare function calcTax(amount: number): string;
+declare let newResult: any;
+declare let myNumber: number;
+declare function calcTax(amount: any): any;
 declare let price: number;
-declare let fullTax: string;
+declare let fullTax: any;
 declare let halfTax: number;
+declare let stringVal: any;
