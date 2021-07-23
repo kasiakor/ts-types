@@ -22,14 +22,14 @@
 // console.log(stringVal);
 // console.log(`Price is ${price}, full tax is ${fullTax}, and now half tax is ${halfTax}`);
 //type unions
-function calcTax2(amount, format) {
-    const calcAmount = amount * 1.2;
-    return format ? `$${(calcAmount).toFixed(2)}` : calcAmount;
-}
-let taxNumber = calcTax2(100, false);
-console.log(`tax number: ${taxNumber}, ${typeof taxNumber}`);
-let taxString = calcTax2(200, true);
-console.log(`tax number: ${taxString}, ${typeof taxString}`);
+// function calcTax2(amount: number, format: boolean): number | string {
+//     const calcAmount = amount * 1.2;
+//     return format ? `$${(calcAmount).toFixed(2)}`: calcAmount;
+// }
+// let taxNumber = calcTax2(100, false);
+// console.log(`tax number: ${taxNumber}, ${typeof taxNumber}`);
+// let taxString = calcTax2(200, true);
+// console.log(`tax number: ${taxString}, ${typeof taxString}`);
 //code below produces compiler error
 // function calcTax2(amount: number, format: boolean): string | number {
 //     const calcAmount = amount * 1.2;
@@ -39,3 +39,14 @@ console.log(`tax number: ${taxString}, ${typeof taxString}`);
 // console.log(`tax number: ${taxNumber.toFixed(2)}, ${typeof taxNumber}`);
 // let taxString: string | number = calcTax2(200, true);
 // console.log(`tax string: ${taxString.charAt(0)}, ${typeof taxString}`);
+// use of type assertion, compiler applies types
+function calcTax3(amount, format) {
+    const calcAmount = amount * 1.2;
+    return format ? `$${(calcAmount).toFixed(2)}` : calcAmount;
+}
+//let taxNumber: number
+let taxNumber = calcTax3(100, false);
+console.log(`tax number: ${taxNumber.toFixed(2)}, ${typeof taxNumber}`);
+//let taxString: string
+let taxString = calcTax3(200, true);
+console.log(`tax number: ${taxString.charAt(1)}, ${typeof taxString}`);
