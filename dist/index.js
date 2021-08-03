@@ -74,3 +74,7 @@ switch (typeof taxValue) {
         let value = taxValue;
         console.log(`Unexpected type for value, never type ${typeof value}`);
 }
+//unknown is not assignable to number, use assertion "as number"
+let newResult = calcTax3(100, false);
+let myNumber = newResult;
+console.log(`Unknown type ${myNumber.toFixed(2)}, ${typeof myNumber}`);
