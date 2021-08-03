@@ -76,3 +76,22 @@ console.log(`tax number: ${taxString.charAt(1)}, ${typeof taxString}`);
 //assereted as a boolean but when executed produces a number
 let taxBoolean = calcTax3(200, false) as any as boolean;
 console.log(`tax number: ${taxBoolean}, ${typeof taxBoolean}`);
+
+// never type use when the types have been used exhaustively
+// sth to went wrong if default
+
+let taxValue = calcTax3(100, false);
+
+switch (typeof taxValue) {
+    case "number":
+        {`tax number: ${taxNumber.toFixed(2)}`};
+        break;
+    case "string":
+        {`tax number: ${taxString.charAt(1)}`};
+        break;
+    default:
+        let value: never = taxValue;
+        console.log(`Unexpected type for value, never type ${typeof value}`);
+
+
+}
