@@ -41,6 +41,9 @@
 // console.log(`tax string: ${taxString.charAt(0)}, ${typeof taxString}`);
 // use of type assertion, compiler applies types
 function calcTax3(amount, format) {
+    if (amount === 0) {
+        return null;
+    }
     const calcAmount = amount * 1.2;
     return format ? `$${(calcAmount).toFixed(2)}` : calcAmount;
 }
@@ -56,7 +59,8 @@ let taxBoolean = calcTax3(200, false);
 console.log(`tax number: ${taxBoolean}, ${typeof taxBoolean}`);
 // never type use when the types have been used exhaustively
 // sth to went wrong if default
-let taxValue = calcTax3(100, false);
+//Unexpected type for value:  null, never type object, 0 passed and null returned
+let taxValue = calcTax3(0, false);
 switch (typeof taxValue) {
     case "number":
         {

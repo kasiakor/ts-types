@@ -59,10 +59,14 @@
 
 
 // use of type assertion, compiler applies types
-function calcTax3(amount: number, format: boolean): number | string {
+function calcTax3(amount: number, format: boolean): string | number {
+    if (amount === 0) {
+        return null;
+    }
     const calcAmount = amount * 1.2;
     return format ? `$${(calcAmount).toFixed(2)}`: calcAmount;
 }
+
 
 //let taxNumber: number
 let taxNumber = calcTax3(100, false) as number;
@@ -80,7 +84,9 @@ console.log(`tax number: ${taxBoolean}, ${typeof taxBoolean}`);
 // never type use when the types have been used exhaustively
 // sth to went wrong if default
 
-let taxValue = calcTax3(100, false);
+//Unexpected type for value:  null, never type object, 0 passed and null returned
+let taxValue: string | number = calcTax3(0, false);
+
 
 switch (typeof taxValue) {
     case "number":
@@ -97,4 +103,5 @@ switch (typeof taxValue) {
 //unknown is not assignable to number, use assertion "as number"
 let newResult: unknown = calcTax3(100, false);
 let myNumber: number = newResult as number;
-console.log(`Unknown type ${myNumber.toFixed(2)}, ${typeof myNumber}`)
+console.log(`Unknown type ${myNumber.toFixed(2)}, ${typeof myNumber}`);
+
