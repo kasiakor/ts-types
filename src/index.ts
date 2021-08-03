@@ -1,13 +1,14 @@
-function calcTax(amount) {
-    return amount * 1.2;
+function calcTax(amount, discount) {
+    return (amount * 1.2) - discount;
 }
 
-let taxValue = calcTax(260);
-console.log(`Tax value is ${taxValue}`);
-       
-function calcTaxDisc(amount, discount) {
-    return calcTax(amount) - discount;
-}
+let taxValue = calcTax(260, 0);
+console.log(`Tax value fgor 2 args is ${taxValue}`);
 
-let taxValDisc = calcTaxDisc(100, 30)
-console.log(`Tax value with discount is ${taxValDisc}`);
+//Expected 2 arguments, but got 1
+taxValue = calcTax(260);
+console.log(`Tax value fgor 2 args is ${taxValue}`);
+
+//Expected 2 arguments, but got 3
+taxValue = calcTax(260, 20, 30);
+console.log(`Tax value fgor 3 args is ${taxValue}`);
