@@ -107,3 +107,33 @@ switch (typeof taxValue2) {
             console.log(`Unexpected type for taxValue2, never type ${typeof value}`);
         }
 }
+function calcTax5(amount, format) {
+    if (amount === 0) {
+        return null;
+    }
+    const calcAmount = amount * 1.2;
+    return format ? `$${(calcAmount).toFixed(2)}` : calcAmount;
+}
+//Value is null
+let taxValue5 = calcTax5(0, false);
+if (taxValue5 !== null) {
+    let nonNullTaxValue = taxValue5;
+    console.log(`nonNullTaxValue is ${nonNullTaxValue}`);
+    switch (typeof taxValue5) {
+        case "number":
+            {
+                `tax number: ${taxNumber.toFixed(2)}`;
+            }
+            ;
+            break;
+        case "string":
+            {
+                `tax number: ${taxString.charAt(1)}`;
+            }
+            ;
+            break;
+    }
+}
+else {
+    console.log("Value is not string or a number");
+}

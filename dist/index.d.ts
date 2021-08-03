@@ -6,3 +6,5 @@ declare let newResult: unknown;
 declare let myNumber: number;
 declare function calcTax4(amount: number, format: boolean): string | number | null;
 declare let taxValue2: string | number | null;
+declare function calcTax5(amount: number, format: boolean): string | number | null;
+declare let taxValue5: string | number | null;
