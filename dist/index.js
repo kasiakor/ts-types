@@ -60,8 +60,32 @@ console.log(`tax number: ${taxBoolean}, ${typeof taxBoolean}`);
 // never type use when the types have been used exhaustively
 // sth to went wrong if default
 //Unexpected type for value:  null, never type object, 0 passed and null returned
-let taxValue = calcTax3(0, false);
-switch (typeof taxValue) {
+// let taxValue: string | number | null = calcTax3(0, false);
+// switch (typeof taxValue) {
+//     case "number":
+//         {`tax number: ${taxNumber.toFixed(2)}`};
+//         break;
+//     case "string":
+//         {`tax number: ${taxString.charAt(1)}`};
+//         break;
+//     default:
+//         let value: never = taxValue;
+//         console.log(`Unexpected type for value, never type ${typeof value}`);
+// }
+//unknown is not assignable to number, use assertion "as number"
+let newResult = calcTax3(100, false);
+let myNumber = newResult;
+console.log(`Unknown type ${myNumber.toFixed(2)}, ${typeof myNumber}`);
+function calcTax4(amount, format) {
+    if (amount === 0) {
+        return null;
+    }
+    const calcAmount = amount * 1.2;
+    return format ? `$${(calcAmount).toFixed(2)}` : calcAmount;
+}
+//Value is null
+let taxValue2 = calcTax4(0, false);
+switch (typeof taxValue2) {
     case "number":
         {
             `tax number: ${taxNumber.toFixed(2)}`;
@@ -75,10 +99,11 @@ switch (typeof taxValue) {
         ;
         break;
     default:
-        let value = taxValue;
-        console.log(`Unexpected type for value, never type ${typeof value}`);
+        if (taxValue2 === null) {
+            console.log("Value is null");
+        }
+        else {
+            let value = taxValue2;
+            console.log(`Unexpected type for taxValue2, never type ${typeof value}`);
+        }
 }
-//unknown is not assignable to number, use assertion "as number"
-let newResult = calcTax3(100, false);
-let myNumber = newResult;
-console.log(`Unknown type ${myNumber.toFixed(2)}, ${typeof myNumber}`);
