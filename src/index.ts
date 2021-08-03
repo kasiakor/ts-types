@@ -73,5 +73,6 @@ let taxString = calcTax3(200, true) as string;
 console.log(`tax number: ${taxString.charAt(1)}, ${typeof taxString}`);
 
 //let taxBoolean: boolean
-let taxBoolean = calcTax3(200, false) as boolean;
+//assereted as a boolean but when executed produces a number
+let taxBoolean = calcTax3(200, false) as any as boolean;
 console.log(`tax number: ${taxBoolean}, ${typeof taxBoolean}`);

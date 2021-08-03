@@ -51,5 +51,6 @@ console.log(`tax number: ${taxNumber.toFixed(2)}, ${typeof taxNumber}`);
 let taxString = calcTax3(200, true);
 console.log(`tax number: ${taxString.charAt(1)}, ${typeof taxString}`);
 //let taxBoolean: boolean
+//assereted as a boolean but when executed produces a number
 let taxBoolean = calcTax3(200, false);
 console.log(`tax number: ${taxBoolean}, ${typeof taxBoolean}`);
