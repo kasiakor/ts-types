@@ -4,6 +4,11 @@ function calcTax(amount: number, discount: number = 10, ...extraFees: number[]):
 
 }
 
-let taxValue = calcTax(100, 0);
-console.log(`Tax value is ${taxValue}`);
+function writeValue(label: string, value: number): void {
+    console.log(`label: ${label}, value: ${value}`);
+}
+
+
+writeValue("Tax value is ", calcTax(60, 0));
+
 
