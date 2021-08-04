@@ -4,9 +4,8 @@ function calcTax(amount) {
 function writeValue(product, price) {
     console.log(`price for ${product}: $${price.toFixed(2)}`);
 }
-let hat = 100;
-let ball = 50;
-let umbrella = 30;
-writeValue("Hat price is ", calcTax(hat));
-writeValue("Ball price is ", calcTax(ball));
-writeValue("Umbrella price is ", calcTax(umbrella));
+let prices = [100, 50, 30];
+let names = ["hat", "ball", "umbrella"];
+writeValue(names[0], calcTax(prices[0]));
+writeValue(names[1], calcTax(prices[1]));
+writeValue(names[2], calcTax(prices[2]));

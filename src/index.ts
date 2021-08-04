@@ -6,13 +6,12 @@ function writeValue(product: string, price: number): void {
     console.log(`price for ${product}: $${price.toFixed(2)}`);
 }
 
-let hat = 100;
-let ball = 50;
-let umbrella = 30;
+let prices: number[] = [100, 50, 30];
+let names: string[] = ["hat", "ball", "umbrella"];
 
 
-writeValue("Hat price is ", calcTax(hat));
-writeValue("Ball price is ", calcTax(ball));
-writeValue("Umbrella price is ", calcTax(umbrella));
+writeValue(names[0], calcTax(prices[0]));
+writeValue(names[1], calcTax(prices[1]));
+writeValue(names[2], calcTax(prices[2]));
 
 
