@@ -9,9 +9,4 @@ function writeValue(product: string, price: number): void {
 let prices: number[] = [100, 50, 30];
 let names: string[] = ["hat", "ball", "umbrella"];
 
-
-writeValue(names[0], calcTax(prices[0]));
-writeValue(names[1], calcTax(prices[1]));
-writeValue(names[2], calcTax(prices[2]));
-
-
+prices.forEach((price:number, index:number ) => (writeValue(names[index],calcTax(price))));
