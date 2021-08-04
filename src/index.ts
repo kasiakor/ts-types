@@ -3,6 +3,9 @@ function calcTax(amount: number | null, discount: number = 10, ...extraFees: num
         return (amount * 1.2) - discount + 
         extraFees.reduce((total, value) => total + value, 0);
     }
+    else {
+        return undefined;
+    }
 }
 
 //with null checks enabled  Argument of type 'null' is not assignable to parameter of type 'number'.
