@@ -7,7 +7,7 @@ function writeValue(product: string, price: number): void {
 }
 
 //enum values ribbon = 0, scarf = 1, bracelet = 2
- enum Product {Ribbon, Scarf, Bracelet}
+ enum Product {Ribbon, Scarf, Bracelet= 12}
  //enum used in a tuple
  let products: [Product, number][]= [[Product.Ribbon, 42], [Product.Scarf, 28]];
 

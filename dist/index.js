@@ -9,7 +9,7 @@ var Product;
 (function (Product) {
     Product[Product["Ribbon"] = 0] = "Ribbon";
     Product[Product["Scarf"] = 1] = "Scarf";
-    Product[Product["Bracelet"] = 2] = "Bracelet";
+    Product[Product["Bracelet"] = 12] = "Bracelet";
 })(Product || (Product = {}));
 //enum used in a tuple
 let products = [[Product.Ribbon, 42], [Product.Scarf, 28]];
