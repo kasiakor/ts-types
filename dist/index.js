@@ -4,22 +4,26 @@ function calcTax(amount) {
 function writeValue(product, price) {
     console.log(`price for ${product}: $${price.toFixed(2)}`);
 }
-let hat = ["hat", 50];
-let ball = ["ball", 35];
-let products = [["hat", 50], ["ball", 35]];
-let tupleUnion = [true, false, hat, ...products];
-tupleUnion.forEach((elem) => {
-    if (elem instanceof Array) {
-        elem.forEach((item) => {
-            if (typeof item === "string") {
-                console.log(`string: ${item}`);
-            }
-            else {
-                console.log(`number: ${item}`);
-            }
-        });
+var Product;
+(function (Product) {
+    Product[Product["Ribbon"] = 0] = "Ribbon";
+    Product[Product["Scarf"] = 1] = "Scarf";
+    Product[Product["Bracelet"] = 2] = "Bracelet";
+})(Product || (Product = {}));
+//enum used in a tuple
+let products = [[Product.Ribbon, 42], [Product.Scarf, 28]];
+products.forEach((prod) => {
+    //enum used in a switch statement
+    switch (prod[0]) {
+        case Product.Ribbon:
+            writeValue("Ribbon", calcTax(prod[1]));
+            break;
+        case Product.Scarf:
+            writeValue("Scarf", calcTax(prod[1]));
+            break;
     }
-    else if (typeof elem === "boolean") {
-        console.log(`boolean: ${elem}`);
-    }
+});
+//each enum value has a corresponding number value: 0,1,2
+[Product.Ribbon, Product.Scarf, Product.Bracelet].forEach(val => {
+    console.log(`Value: ${val}`);
 });

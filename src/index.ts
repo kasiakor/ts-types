@@ -6,26 +6,23 @@ function writeValue(product: string, price: number): void {
     console.log(`price for ${product}: $${price.toFixed(2)}`);
 }
 
-let hat: [string, number] = ["hat", 50];
-let ball: [string, number] = ["ball", 35];
+ enum Product {Ribbon, Scarf, Bracelet}
+ //enum used in a tuple
+ let products: [Product, number][]= [[Product.Ribbon, 42], [Product.Scarf, 28]];
 
-let products: [string, number][] = [["hat", 50],["ball", 35]];
-let tupleUnion: ([string, number] | boolean)[] = [true, false, hat, ...products];
+ products.forEach((prod: [Product, number]) => {
+     //enum used in a switch statement
+     switch(prod[0]) {
+        case Product.Ribbon:
+            writeValue("Ribbon", calcTax(prod[1]));
+            break;
+        case Product.Scarf:
+        writeValue("Scarf", calcTax(prod[1]));
+        break;
+     }
+ });
 
-tupleUnion.forEach((elem: [string, number] | boolean) => {
-    if (elem instanceof Array) {
-        elem.forEach((item: string | number ) => {
-            if(typeof item === "string") {
-                console.log(`string: ${item}`);
-            }
-            else {
-                console.log(`number: ${item}`);
-            }
-        });    
-    }
-
-    else if (typeof elem === "boolean") {
-        console.log(`boolean: ${elem}`);
-    }
-    
-});
+ //each enum value has a corresponding number value: 0,1,2
+ [Product.Ribbon, Product.Scarf, Product.Bracelet].forEach(val => {
+     console.log(`Value: ${val}`);
+ });
