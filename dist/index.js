@@ -4,6 +4,7 @@ function calcTax(amount) {
 function writeValue(product, price) {
     console.log(`price for ${product}: $${price.toFixed(2)}`);
 }
+//enum values ribbon = 0, scarf = 1, bracelet = 2
 var Product;
 (function (Product) {
     Product[Product["Ribbon"] = 0] = "Ribbon";
@@ -27,3 +28,7 @@ products.forEach((prod) => {
 [Product.Ribbon, Product.Scarf, Product.Bracelet].forEach(val => {
     console.log(`Value: ${val}`);
 });
+//if productValue is 3 and productName is undefined
+let productValue = 2;
+let productName = Product[productValue];
+console.log(`productValue is ${productValue} and productName is ${productName}`);

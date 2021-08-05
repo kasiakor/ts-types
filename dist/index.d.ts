@@ -6,3 +6,5 @@ declare enum Product {
     Bracelet = 2
 }
 declare let products: [Product, number][];
+declare let productValue: Product;
+declare let productName: string;
