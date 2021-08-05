@@ -9,5 +9,11 @@ function writeValue(product: string, price: number): void {
 let hat: [string, number] = ["hat", 50];
 let ball: [string, number] = ["ball", 35];
 
-writeValue(hat[0], hat[1]);
-writeValue(ball[0], ball[1]);
+hat.forEach((h: string | number) => {
+    if(typeof h === "string") {
+        console.log(`string: ${h}`);
+    }
+    else {
+        console.log(`number: ${h}`);
+    }
+});

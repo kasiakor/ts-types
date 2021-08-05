@@ -6,5 +6,11 @@ function writeValue(product, price) {
 }
 let hat = ["hat", 50];
 let ball = ["ball", 35];
-writeValue(hat[0], hat[1]);
-writeValue(ball[0], ball[1]);
+hat.forEach((h) => {
+    if (typeof h === "string") {
+        console.log(`string: ${h}`);
+    }
+    else {
+        console.log(`number: ${h}`);
+    }
+});
