@@ -6,11 +6,20 @@ function writeValue(product, price) {
 }
 let hat = ["hat", 50];
 let ball = ["ball", 35];
-hat.forEach((h) => {
-    if (typeof h === "string") {
-        console.log(`string: ${h}`);
+let products = [["hat", 50], ["ball", 35]];
+let tupleUnion = [true, false, hat, ...products];
+tupleUnion.forEach((elem) => {
+    if (elem instanceof Array) {
+        elem.forEach((item) => {
+            if (typeof item === "string") {
+                console.log(`string: ${item}`);
+            }
+            else {
+                console.log(`number: ${item}`);
+            }
+        });
     }
-    else {
-        console.log(`number: ${h}`);
+    else if (typeof elem === "boolean") {
+        console.log(`boolean: ${elem}`);
     }
 });
