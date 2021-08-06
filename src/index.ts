@@ -1,36 +1,18 @@
-function calcTax(amount: number): number {
-        return amount * 1.2;
-}
+//Type '100' is not assignable to type '1 | 2 | 3'
+// let restrictedVal: 1 | 2 | 3 = 100;
+// console.log(`Restricted value is ${restrictedVal}`);
 
-function writeValue(product: string, price: number): void {
-    console.log(`price for ${product}: $${price.toFixed(2)}`);
-}
+//no error for null or undefined
+let restrictedVal2: 1 | 2 | 3 = undefined;
+console.log(`Restricted value is ${restrictedVal2}`);
 
-//enum values ribbon = 0, scarf = 1, bracelet = 2
- enum Product {Ribbon, Scarf, Bracelet= 12}
- //enum used in a tuple
- let products: [Product, number][]= [[Product.Ribbon, 42], [Product.Scarf, 28]];
+let firstVal: 0| 1 | 2 | 3 = 1;
+let secondVal: 0| 1 | 22 | 33 = 1;
 
- products.forEach((prod: [Product, number]) => {
-     //enum used in a switch statement
-     switch(prod[0]) {
-        case Product.Ribbon:
-            writeValue("Ribbon", calcTax(prod[1]));
-            break;
-        case Product.Scarf:
-        writeValue("Scarf", calcTax(prod[1]));
-        break;
-     }
- });
+console.log(`firstVal: ${firstVal}, secondVal: ${secondVal}`);
 
- //each enum value has a corresponding number value: 0,1,2
- [Product.Ribbon, Product.Scarf, Product.Bracelet].forEach(val => {
-     console.log(`Value: ${val}`);
- });
-
-
- //if productValue is 3 and productName is undefined
- let productValue: Product = 2;
- let productName: string = Product[productValue];
-
- console.log(`productValue is ${productValue} and productName is ${productName}`);
+secondVal = 0;
+//Type '22' is not assignable to type '0 | 1 | 2 | 3'
+firstVal = secondVal;
+//fist value now is 0
+console.log(`fist value now is ${firstVal}`);
