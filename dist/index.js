@@ -1,14 +1,6 @@
-//Type '100' is not assignable to type '1 | 2 | 3'
-// let restrictedVal: 1 | 2 | 3 = 100;
-// console.log(`Restricted value is ${restrictedVal}`);
-//no error for null or undefined
-let restrictedVal2 = undefined;
-console.log(`Restricted value is ${restrictedVal2}`);
-let firstVal = 1;
-let secondVal = 1;
-console.log(`firstVal: ${firstVal}, secondVal: ${secondVal}`);
-secondVal = 0;
-//Type '22' is not assignable to type '0 | 1 | 2 | 3'
-firstVal = secondVal;
-//fist value now is 0
-console.log(`fist value now is ${firstVal}`);
+function calcPrice(quantity, price) {
+    return quantity * price;
+}
+//Argument of type '3' is not assignable to parameter of type '1 | 2'.
+let total = calcPrice(3, 32);
+console.log(`the total is ${total}`);
