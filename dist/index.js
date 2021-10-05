@@ -1,20 +1,7 @@
-function calcPrice(quantity, price) {
-    return quantity * price;
-}
-let total = calcPrice(2, 32);
-console.log(`the total is ${total}`);
-//enum: collection of values that is called by the name
-var City;
-(function (City) {
-    City["London"] = "LON";
-    City["Paris"] = "PAR";
-    City["Chicago"] = "CHIC";
-})(City || (City = {}));
-//LON
-console.log(City.London);
-function getVal(input) {
-    return [["Apple", 100, 2], ["Pear", true, 3]];
-}
-//alias can be used in type annotations
-let result = getVal([["Lemon", 10, 1], ["Lime", true, 2]]);
-console.log(`the result is ${result}`);
+let hat = { name: "Hat", price: 100 };
+let gloves = { name: "gloves", price: 75 };
+//property 'price' does not exist on type '{ name: string; }'
+//declaration changed to common properties let products: {name: string;}[];
+let umbrella = { name: "umbrella" };
+let products = [hat, gloves, umbrella];
+products.forEach(prod => console.log(`${prod.name}, ${prod.price}`));
