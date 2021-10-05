@@ -1,3 +1,8 @@
+declare type Product = {
+    name: string;
+    price: number;
+    waterproof?: boolean;
+};
 declare let hat: {
     name: string;
     price: number;
@@ -11,8 +16,4 @@ declare let umbrella: {
     price: number;
     waterproof: boolean;
 };
-declare let products: {
-    name: string;
-    price: number;
-    waterproof?: boolean;
-}[];
+declare let products: Product[];
