@@ -8,6 +8,10 @@ declare type Person = {
     name: string;
     city: string;
 };
+declare type UnionType = {
+    id: number | string;
+    name: string;
+};
 declare let hat: {
     id: number;
     name: string;
@@ -29,4 +33,4 @@ declare let dog: {
     name: string;
     city: string;
 };
-declare let dataItems: (Product | Person)[];
+declare let dataItems: (UnionType)[];
