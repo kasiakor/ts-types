@@ -4,14 +4,17 @@ let umbrella = { id: 3, name: "umbrella", price: 30, waterproof: true };
 let gia = { id: "caranagia", name: "Gia", city: "Rome" };
 //type union
 let dataItems = [hat, gloves, umbrella, gia];
-//do not test this way for optional property as object can still match the shape of product
-//Property 'city' does not exist on type 'Product | Person'.
-//Property 'city' does not exist on type 'Product'
+//type predicate function
+function isPerson(testObj) {
+    return testObj.city !== undefined;
+    //if true type is person
+}
 dataItems.forEach(item => {
-    if ("price" in item) {
-        console.log(`${item.name}, ${item.price}`);
+    if (isPerson(item)) {
+        //if true log item city
+        console.log(`${item.name}, ${item.city}`);
     }
     else {
-        console.log(`${item.name}, ${item.city}`);
+        console.log(`${item.name}, ${item.price}`);
     }
 });
