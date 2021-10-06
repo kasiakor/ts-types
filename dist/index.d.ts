@@ -1,25 +1,32 @@
 declare type Product = {
+    id: number;
     name: string;
-    price: number;
-    waterproof?: boolean;
+    price?: number;
+};
+declare type Person = {
+    id: string;
+    name: string;
+    city: string;
 };
 declare let hat: {
+    id: number;
     name: string;
     price: number;
 };
 declare let gloves: {
+    id: number;
     name: string;
     price: number;
 };
 declare let umbrella: {
+    id: number;
     name: string;
     price: number;
     waterproof: boolean;
 };
-declare let mirrorShades: {
+declare let dog: {
+    id: string;
     name: string;
-    price: number;
-    finish: string;
+    city: string;
 };
-declare let darkShades: Product;
-declare let products: Product[];
+declare let dataItems: (Product | Person)[];
