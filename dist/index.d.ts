@@ -16,4 +16,10 @@ declare let umbrella: {
     price: number;
     waterproof: boolean;
 };
+declare let mirrorShades: {
+    name: string;
+    price: number;
+    finish: string;
+};
+declare let darkShades: Product;
 declare let products: Product[];
