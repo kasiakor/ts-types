@@ -1,23 +1,8 @@
-let people = [
-    { id: "annab", name: "Anna Barley", city: "Paris" },
-    { id: "mariosg", name: "Marios Grey", city: "Milan" },
-    { id: "kathyd", name: "Kathy Drill", city: "New York" }
-];
-let employees = [
-    { id: "annab", company: "abc", dep: "sales" },
-    { id: "mariosg", company: "marco", dep: "hr" },
-    { id: "kathyd", company: "strom", dep: "marketing" }
-];
-//type intersection for data correlation
-//used when objects come from different sources
-function correlateData(peopleData, staff) {
-    return peopleData.map(p => ({
-        ...p, ...staff.find(e => e.id === p.id)
-    }));
-}
-let dataItems = correlateData(people, employees);
-dataItems.forEach(item => {
-    console.log(`Person: ${item.name}, ${item.city}`);
-    console.log(`Employee: ${item.company}, ${item.dep}`);
-    console.log(Array.isArray(dataItems));
-});
+//declare let typeTest: string & number;
+let typeTest = {}.contact;
+//Type 'string' is not assignable to type 'string & number'.
+//Type 'string' is not assignable to type 'number'.
+//Type 'number' is not assignable to type 'string & number'.
+//Type 'number' is not assignable to type 'string'
+let person1 = { id: "annab", name: "Anna Barley", city: "Paris", contact: "mobile" };
+let person2 = { id: "mariosg", name: "Marios Grey", city: "Milan", contact: 6985670987 };
