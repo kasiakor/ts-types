@@ -12,6 +12,7 @@ type Employee = {
     dep: string
 }
 
+//merging properties with the same type: id: string, e.id === p.id
 
 type EmployedPerson = Person & Employee;
 
