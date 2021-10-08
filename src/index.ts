@@ -5,30 +5,32 @@ type Person = {
     city: string
 }
 
-type Anyname = {
-    id: string,
-    name: string,
-    dep: string,
-    city: string,
-    writeDep: () => void
+class Employee {
+    id: string;
+    name: string;
+    dep: string;
+    city: string;
+
+    //constructor function
+    constructor(id: string, name: string, dep: string, city: string) {
+        this.id = id;
+        this.name = name;
+        this.dep = dep;
+        this.city = city;
+    }
+    //method
+    writeDep() {
+        console.log(`Person ${this.name} works in ${this.dep}`);
+    }
 }
 
-//constructor function
-let Employee = function(id: string, name: string, dep: string, city: string) {
-    this.id = id,
-    this.name = name,
-    this.dep = dep,
-    this.city = city
-}
-
+//compiler creates new instance of the class
 let newPerson = new Employee("nickc", "Nick Cave", "PA", "Denver");
 
-Employee.prototype.writeDep = function(){
-    console.log(`${this.name} works in ${this.dep}`);
-}
+
 
 //constructor will match the obj created by the constructor to the shape defined by the Anyname obj
-let data: (Person | Anyname)[] = 
+let data: (Person | Employee)[] = 
 [
     {id:"annab", name:"Anna Barley", city:"Paris"},
     {id:"mariosg", name: "Marios Grey", city: "Milan"},
@@ -37,7 +39,7 @@ let data: (Person | Anyname)[] =
 ]
 
 data.forEach(item => {
-    if("dep" in item) {
+    if(item instanceof Employee) {
         item.writeDep();
     }
     else {
