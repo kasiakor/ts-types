@@ -2,43 +2,46 @@
 type Person = {
     id: string,
     name: string,
-    city: string,
-    getContact(field: string): string
-};
+    city: string
+}
 
-//employee shape
-type Employee = {
+type Anyname = {
     id: string,
-    company: string,
+    name: string,
     dep: string,
-    getContact(field: number): number
-};
+    city: string,
+    writeDep: () => void
+}
 
-//merging methods with the same name
-//create type union
+//constructor function
+let Employee = function(id: string, name: string, dep: string, city: string) {
+    this.id = id,
+    this.name = name,
+    this.dep = dep,
+    this.city = city
+}
 
-type EmployedPerson = Person & Employee;
+let newPerson = new Employee("nickc", "Nick Cave", "PA", "Denver");
 
-let person: EmployedPerson = {id:"annab", name:"Anna Barley", city:"Paris", company:"abcd", dep: "sales",
-    getContact(field: string | number):any {
-        return typeof field === "string" ? "Alice" : 12345678;
+Employee.prototype.writeDep = function(){
+    console.log(`${this.name} works in ${this.dep}`);
+}
+
+//constructor will match the obj created by the constructor to the shape defined by the Anyname obj
+let data: (Person | Anyname)[] = 
+[
+    {id:"annab", name:"Anna Barley", city:"Paris"},
+    {id:"mariosg", name: "Marios Grey", city: "Milan"},
+    {id:"kathyd", name:"Kathy Drill", city:"New York"},
+    newPerson
+]
+
+data.forEach(item => {
+    if("dep" in item) {
+        item.writeDep();
     }
-};
-
-// declare type EmployedPerson = Person & Employee;
-// declare let person: EmployedPerson;
-// declare let typeTest: ((field: string) => string) & ((field: number) => number) - intersection of method signatures
-// declare let stringTypeField: string;
-// declare let numberTypeField: number;
-let typeTest = person.getContact;
-let stringTypeField = person.getContact("Gia");
-let numberTypeField = person.getContact(12345);
-
-
-console.log(`Person string contact: ${person.getContact("abc")}, Person contact number ${person.getContact(123)} `);
-
-
-
-
-
+    else {
+        console.log(item);
+    }    
+});
    

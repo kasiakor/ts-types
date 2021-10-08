@@ -3,9 +3,9 @@
    "target": "es2018",
    "outDir": "./dist",
    "rootDir": "./src",
-   "declaration": true,
-   "strictNullChecks": true,
-   "suppressExcessPropertyErrors": true
+   "declaration": true
+   //"strictNullChecks": true,
+   //"suppressExcessPropertyErrors": true
    //"noImplicitReturns": true,
  }
 }

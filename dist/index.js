@@ -1,14 +1,26 @@
-let person = { id: "annab", name: "Anna Barley", city: "Paris", company: "abcd", dep: "sales",
-    getContact(field) {
-        return typeof field === "string" ? "Alice" : 12345678;
-    }
+//constructor function
+let Employee = function (id, name, dep, city) {
+    this.id = id,
+        this.name = name,
+        this.dep = dep,
+        this.city = city;
 };
-// declare type EmployedPerson = Person & Employee;
-// declare let person: EmployedPerson;
-// declare let typeTest: ((field: string) => string) & ((field: number) => number) - intersection of method signatures
-// declare let stringTypeField: string;
-// declare let numberTypeField: number;
-let typeTest = person.getContact;
-let stringTypeField = person.getContact("Gia");
-let numberTypeField = person.getContact(12345);
-console.log(`Person string contact: ${person.getContact("abc")}, Person contact number ${person.getContact(123)} `);
+let newPerson = new Employee("nickc", "Nick Cave", "PA", "Denver");
+Employee.prototype.writeDep = function () {
+    console.log(`${this.name} works in ${this.dep}`);
+};
+//constructor will match the obj created by the constructor to the shape defined by the Anyname obj
+let data = [
+    { id: "annab", name: "Anna Barley", city: "Paris" },
+    { id: "mariosg", name: "Marios Grey", city: "Milan" },
+    { id: "kathyd", name: "Kathy Drill", city: "New York" },
+    newPerson
+];
+data.forEach(item => {
+    if ("dep" in item) {
+        item.writeDep();
+    }
+    else {
+        console.log(item);
+    }
+});

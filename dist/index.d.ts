@@ -2,16 +2,14 @@ declare type Person = {
     id: string;
     name: string;
     city: string;
-    getContact(field: string): string;
 };
-declare type Employee = {
+declare type Anyname = {
     id: string;
-    company: string;
+    name: string;
     dep: string;
-    getContact(field: number): number;
+    city: string;
+    writeDep: () => void;
 };
-declare type EmployedPerson = Person & Employee;
-declare let person: EmployedPerson;
-declare let typeTest: ((field: string) => string) & ((field: number) => number);
-declare let stringTypeField: string;
-declare let numberTypeField: number;
+declare let Employee: (id: string, name: string, dep: string, city: string) => void;
+declare let newPerson: any;
+declare let data: (Person | Anyname)[];
