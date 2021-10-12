@@ -14,7 +14,8 @@ class Employee {
 //compiler creates new instance of the class
 let newPerson = new Employee("nickc", "Nick Cave", "PA", "Denver");
 //property 'dep' is private and only accessible within class 'Employee'.
-console.log(`New person works is ${newPerson.dep}`);
+//console.log(`New person works is ${newPerson.dep}`);
+newPerson.writeDep();
 //constructor will match the obj created by the constructor to the shape defined by the Anyname obj
 let data = [
     { id: "annab", name: "Anna Barley", city: "Paris" },
