@@ -1,14 +1,15 @@
-//person shape
-type Person = {
-    id: string,
-    name: string,
-    city: string
+class Person {
+    //superclass constructor function
+    constructor( public id: string, public name: string, public city: string) {
+        //no statments required
+    }
 }
 
-class Employee {
+class Employee extends Person {
     //constructor function
     constructor( public readonly id: string, public name: string, private dep: string, public city: string) {
-        //no statments required
+        //superclass constructor is envoked
+        super(id, name, city);
     }
     //method
     writeDep() {
@@ -16,10 +17,15 @@ class Employee {
     }
 }
 
-//compiler creates new instance of the class
-let newPerson = new Employee("nickc", "Nick Cave", "PA", "Denver");
+let data = [new Person("zarah", "Zara Howard", "Sidney"), new Employee("nickc", "Nick Cave", "PA", "Denver")]
 
-newPerson.writeDep();
+data.forEach(item => {
+    console.log(`Person's data: ${item.id}, ${item.name}, ${item.city}`);
+    if(item instanceof Employee) {
+        item.writeDep();
+    }
+})
+
 
 
    

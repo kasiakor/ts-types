@@ -1,9 +1,10 @@
-declare type Person = {
+declare class Person {
     id: string;
     name: string;
     city: string;
-};
-declare class Employee {
+    constructor(id: string, name: string, city: string);
+}
+declare class Employee extends Person {
     readonly id: string;
     name: string;
     private dep;
@@ -11,4 +12,4 @@ declare class Employee {
     constructor(id: string, name: string, dep: string, city: string);
     writeDep(): void;
 }
-declare let newPerson: Employee;
+declare let data: Person[];
