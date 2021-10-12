@@ -12,4 +12,3 @@ declare class Employee {
     writeDep(): void;
 }
 declare let newPerson: Employee;
-declare let data: (Person | Employee)[];
