@@ -33,7 +33,7 @@ class Supplier extends Person {
     }
 }
 
-let data = [new Employee("nickc", "Nick Cave", "PA", "Denver"), new Customer("zarah", "Zara Howard", "Sidney", 23000), ]
+let data: Person[] = [new Employee("nickc", "Nick Cave", "PA", "Denver"), new Customer("zarah", "Zara Howard", "Sidney", 23000), ]
 
 
 //argument of type 'Supplier' is not assignable to parameter of type 'Employee | Customer'.
