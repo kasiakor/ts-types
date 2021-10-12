@@ -27,34 +27,27 @@ class Employee extends Person {
     }
 }
 
-class Customer extends Person {
+class Customer {
     //constructor function
     constructor( public readonly id: string, public name: string, public city: string, public creditLimit: number) {
         //superclass constructor is envoked
-        super(id, name, city);
-    }
-    getMoreDetails() {
-        return `Customer has a credit lomit of ${this.creditLimit}`;
     }
 }
 
-class Supplier extends Person {
-    //constructor function
-    constructor( public readonly id: string, public name: string, public city: string, public companyName: string) {
-        //superclass constructor is envoked
-        super(id, name, city);
+
+let data: (Person | Customer)[] = [new Employee("nickc", "Nick Cave", "PA", "Denver"), new Customer("zarah", "Zara Howard", "Sidney", 23000), ]
+
+
+data.forEach(item => {
+
+    if(item instanceof Person) {
+        console.log(item.getDetails());
     }
 
-     getMoreDetails() {
-        return `Employee works in deparatament of ${this.companyName}`;
+    else {
+        console.log(`Credit limit for Customer is ${item.creditLimit}`);
     }
-}
-
-let data: Person[] = [new Employee("nickc", "Nick Cave", "PA", "Denver"), new Customer("zarah", "Zara Howard", "Sidney", 23000), ]
-
-data.push(new Supplier("tomk", "Tom Kim", "London", "bbc"));
-
-data.forEach(item => console.log(item.getDetails()));
+})
 
 
 

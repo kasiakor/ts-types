@@ -28,34 +28,22 @@ class Employee extends Person {
         return `Employee works in deparatament of ${this.dep}`;
     }
 }
-class Customer extends Person {
+class Customer {
     //constructor function
     constructor(id, name, city, creditLimit) {
-        //superclass constructor is envoked
-        super(id, name, city);
         this.id = id;
         this.name = name;
         this.city = city;
         this.creditLimit = creditLimit;
-    }
-    getMoreDetails() {
-        return `Customer has a credit lomit of ${this.creditLimit}`;
-    }
-}
-class Supplier extends Person {
-    //constructor function
-    constructor(id, name, city, companyName) {
         //superclass constructor is envoked
-        super(id, name, city);
-        this.id = id;
-        this.name = name;
-        this.city = city;
-        this.companyName = companyName;
-    }
-    getMoreDetails() {
-        return `Employee works in deparatament of ${this.companyName}`;
     }
 }
 let data = [new Employee("nickc", "Nick Cave", "PA", "Denver"), new Customer("zarah", "Zara Howard", "Sidney", 23000),];
-data.push(new Supplier("tomk", "Tom Kim", "London", "bbc"));
-data.forEach(item => console.log(item.getDetails()));
+data.forEach(item => {
+    if (item instanceof Person) {
+        console.log(item.getDetails());
+    }
+    else {
+        console.log(`Credit limit for Customer is ${item.creditLimit}`);
+    }
+});
