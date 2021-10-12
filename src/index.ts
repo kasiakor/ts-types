@@ -1,8 +1,14 @@
-class Person {
+abstract class Person {
     //superclass constructor function
     constructor( public id: string, public name: string, public city: string) {
         //no statments required
     }
+
+    getDetails(): string {
+        return this.getMoreDetails();
+    }
+
+    abstract getMoreDetails(): string;
 }
 
 class Employee extends Person {
@@ -15,6 +21,10 @@ class Employee extends Person {
     writeDep() {
         console.log(`Person ${this.name} works in ${this.dep}`);
     }
+
+    getMoreDetails() {
+        return `Employee works in deparatament of ${this.dep}`;
+    }
 }
 
 class Customer extends Person {
@@ -22,6 +32,9 @@ class Customer extends Person {
     constructor( public readonly id: string, public name: string, public city: string, public creditLimit: number) {
         //superclass constructor is envoked
         super(id, name, city);
+    }
+    getMoreDetails() {
+        return `Customer has a credit lomit of ${this.creditLimit}`;
     }
 }
 
@@ -31,27 +44,18 @@ class Supplier extends Person {
         //superclass constructor is envoked
         super(id, name, city);
     }
+
+     getMoreDetails() {
+        return `Employee works in deparatament of ${this.companyName}`;
+    }
 }
 
 let data: Person[] = [new Employee("nickc", "Nick Cave", "PA", "Denver"), new Customer("zarah", "Zara Howard", "Sidney", 23000), ]
 
-
-//argument of type 'Supplier' is not assignable to parameter of type 'Employee | Customer'.
 data.push(new Supplier("tomk", "Tom Kim", "London", "bbc"));
 
-data.forEach(item => {
-    console.log(`Person's data: ${item.id}, ${item.name}, ${item.city}`);
-    if(item instanceof Employee) {
-        item.writeDep();
-    }
-    else if(item instanceof Customer) {
-        console.log(`Cutomer ${item.name} has this limit ${item.creditLimit}`);
-    }
+data.forEach(item => console.log(item.getDetails()));
 
-    else if(item instanceof Supplier) {
-        console.log(`Cutomer ${item.name} works for company called ${item.companyName}`);
-    }
-})
 
 
 
