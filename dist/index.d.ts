@@ -6,7 +6,7 @@ declare type Person = {
 declare class Employee {
     id: string;
     name: string;
-    dep: string;
+    private dep;
     city: string;
     constructor(id: string, name: string, dep: string, city: string);
     writeDep(): void;

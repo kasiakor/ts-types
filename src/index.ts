@@ -6,10 +6,10 @@ type Person = {
 }
 
 class Employee {
-    id: string;
-    name: string;
-    dep: string;
-    city: string;
+    public id: string;
+    public name: string;
+    private dep: string;
+    public city: string;
 
     //constructor function
     constructor(id: string, name: string, dep: string, city: string) {
@@ -26,6 +26,9 @@ class Employee {
 
 //compiler creates new instance of the class
 let newPerson = new Employee("nickc", "Nick Cave", "PA", "Denver");
+
+//property 'dep' is private and only accessible within class 'Employee'.
+console.log(`New person works is ${newPerson.dep}`);
 
 
 
