@@ -4,7 +4,7 @@ declare type Person = {
     city: string;
 };
 declare class Employee {
-    id: string;
+    readonly id: string;
     name: string;
     private dep;
     city: string;
