@@ -1,53 +1,31 @@
-abstract class Person {
-    //superclass constructor function
-    constructor( public id: string, public name: string, public city: string) {
-        //no statments required
-    }
-
-    getDetails(): string {
-        return this.getMoreDetails();
-    }
-
-    abstract getMoreDetails(): string;
+//describes object shape
+interface Person {
+    name: string;
+    getDetails(): string;   
 }
 
-class Employee extends Person {
+class Employee implements Person {
     //constructor function
-    constructor( public readonly id: string, public name: string, private dep: string, public city: string) {
-        //superclass constructor is envoked
-        super(id, name, city);
-    }
-    //method
-    writeDep() {
-        console.log(`Person ${this.name} works in ${this.dep}`);
-    }
+    constructor( public readonly id: string, public name: string, private dep: string, public city: string) {}
 
-    getMoreDetails() {
+    getDetails() {
         return `Employee works in deparatament of ${this.dep}`;
     }
 }
 
-class Customer {
+class Customer implements Person {
     //constructor function
-    constructor( public readonly id: string, public name: string, public city: string, public creditLimit: number) {
-        //superclass constructor is envoked
+    constructor( public readonly id: string, public name: string, public city: string, public creditLimit: number) {}
+    getDetails() {
+        return `Customer credit limit is ${this.creditLimit}`;
     }
 }
 
 
-let data: (Person | Customer)[] = [new Employee("nickc", "Nick Cave", "PA", "Denver"), new Customer("zarah", "Zara Howard", "Sidney", 23000), ]
+let data: Person[] = [new Employee("nickc", "Nick Cave", "PA", "Denver"), new Customer("zarah", "Zara Howard", "Sidney", 23000), ]
 
 
-data.forEach(item => {
-
-    if(item instanceof Person) {
-        console.log(item.getDetails());
-    }
-
-    else {
-        console.log(`Credit limit for Customer is ${item.creditLimit}`);
-    }
-})
+data.forEach(item => console.log(item.getDetails()));
 
 
 
