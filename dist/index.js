@@ -7,7 +7,7 @@ class Employee {
         this.city = city;
     }
     getDetails() {
-        return `Employee works in deparatament of ${this.dep}`;
+        return `Employee works in deparatament of ${this.id}`;
     }
 }
 class Customer {
@@ -19,8 +19,10 @@ class Customer {
         this.creditLimit = creditLimit;
     }
     getDetails() {
-        return `Customer credit limit is ${this.creditLimit}`;
+        return `Customer credit limit is ${this.id}`;
     }
 }
 let data = [new Employee("nickc", "Nick Cave", "PA", "Denver"), new Customer("zarah", "Zara Howard", "Sidney", 23000),];
+//property 'id' does not exist on type 'Person'
+//data.forEach(item => console.log(item.id));
 data.forEach(item => console.log(item.getDetails()));
