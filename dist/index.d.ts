@@ -1,7 +1,7 @@
-interface Person {
+declare type Person = {
     name: string;
     getDetails(): string;
-}
+};
 interface DogOwner extends Person {
     dogName: string;
     getDogDetails(): string;

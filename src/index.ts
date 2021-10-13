@@ -1,5 +1,5 @@
 //describes object shape
-interface Person {
+type Person = {
     name: string;
     getDetails(): string;   
 }
