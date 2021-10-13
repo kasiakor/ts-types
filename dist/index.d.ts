@@ -3,7 +3,7 @@ interface Person {
     getDetails(): string;
 }
 interface DogOwner {
-    dogName: string;
+    name: number;
     getDogDetails(): string;
 }
 declare class Customer implements Person, DogOwner {

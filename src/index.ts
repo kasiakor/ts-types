@@ -5,10 +5,11 @@ interface Person {
 }
 
 interface DogOwner {
-    dogName: string;
+    name: number;
     getDogDetails(): string;   
 }
 
+//Types of property 'name' are incompatible.
 
 class Customer implements Person, DogOwner {
     //constructor function

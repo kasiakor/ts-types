@@ -1,3 +1,4 @@
+//Types of property 'name' are incompatible.
 class Customer {
     //constructor function
     constructor(id, name, city, creditLimit, dogName) {
