@@ -12,20 +12,10 @@ class Customer {
     getDetails() {
         return `${this.name} has got a credit limit of ${this.creditLimit}`;
     }
-    //implements dogowner interface function
-    getDogDetails() {
-        return `${this.name} owns a dog named ${this.dogName}`;
-    }
 }
 let alice = new Customer("aliceb", "Alice Barley", "Berlin", 500, "Fido");
 //false
 console.log(alice, Array.isArray(alice));
-let dogOwners = [alice];
-//true
-console.log(dogOwners, Array.isArray(dogOwners));
 let data = [new Customer("zarah", "Zara Howard", "Sidney", 23000, "Benek"), alice];
-let dataDog = [new Customer("barbarab", "Barbara Barley", "Paris", 25000, "Zola"), alice];
 //access to properties: getDetails(), name
 data.forEach(item => console.log(item.getDetails()));
-//access to properties: getDetails(), name, dogName, getDogDetails()
-dataDog.forEach(item => console.log(item.getDogDetails()));
