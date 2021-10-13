@@ -2,11 +2,11 @@ interface Person {
     name: string;
     getDetails(): string;
 }
-interface DogOwner {
-    name: number;
+interface DogOwner extends Person {
+    dogName: string;
     getDogDetails(): string;
 }
-declare class Customer implements Person, DogOwner {
+declare class Customer implements DogOwner {
     readonly id: string;
     name: string;
     city: string;

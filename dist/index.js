@@ -1,4 +1,3 @@
-//Types of property 'name' are incompatible.
 class Customer {
     //constructor function
     constructor(id, name, city, creditLimit, dogName) {
@@ -26,5 +25,7 @@ let dogOwners = [alice];
 console.log(dogOwners, Array.isArray(dogOwners));
 let data = [new Customer("zarah", "Zara Howard", "Sidney", 23000, "Benek"), alice];
 let dataDog = [new Customer("barbarab", "Barbara Barley", "Paris", 25000, "Zola"), alice];
+//access to properties: getDetails(), name
 data.forEach(item => console.log(item.getDetails()));
+//access to properties: getDetails(), name, dogName, getDogDetails()
 dataDog.forEach(item => console.log(item.getDogDetails()));

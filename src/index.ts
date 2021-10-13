@@ -4,14 +4,13 @@ interface Person {
     getDetails(): string;   
 }
 
-interface DogOwner {
-    name: number;
+//interface contains properties and methods from its parent interface
+interface DogOwner extends Person {
+    dogName: string;
     getDogDetails(): string;   
 }
 
-//Types of property 'name' are incompatible.
-
-class Customer implements Person, DogOwner {
+class Customer implements DogOwner {
     //constructor function
     constructor( public readonly id: string, public name: string, public city: string, public creditLimit: number, public dogName: string) {};
     //implements person interface function
@@ -37,8 +36,10 @@ let data: Person[] = [new Customer("zarah", "Zara Howard", "Sidney", 23000, "Ben
 
 let dataDog: DogOwner[] = [new Customer("barbarab", "Barbara Barley", "Paris", 25000, "Zola"), alice ]
 
+//access to properties: getDetails(), name
 data.forEach(item => console.log(item.getDetails()));
 
+//access to properties: getDetails(), name, dogName, getDogDetails()
 dataDog.forEach(item => console.log(item.getDogDetails()));
 
 
