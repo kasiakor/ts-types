@@ -1,16 +1,4 @@
-class Employee {
-    //constructor function
-    constructor(name, company) {
-        this.name = name;
-        this.company = company;
-    }
-    ;
-    //implements person interface function
-    getDetails() {
-        return `${this.name} works for ${this.company}`;
-    }
-}
-class Shoe {
+class SportProduct {
     //constructor function
     constructor(name, category, price) {
         this.name = name;
@@ -19,10 +7,16 @@ class Shoe {
     }
     ;
 }
-let data = [new Employee("Zara Howard", "Jazz Club"), new Employee("Alice Barley", "POSK"), new Shoe("Red shoes", "Trainers", 500)];
-data.forEach(item => {
-    //check if property exists on item
-    if ("getDetails" in item) {
-        console.log(item.getDetails());
+class ProductGroup {
+    //constructor function
+    constructor(...initialProducts) {
+        initialProducts.forEach(p => this[p[0]] = p[1]);
     }
-});
+    ;
+}
+let group = new ProductGroup(["Shirt", new SportProduct("Polo", "Winter Collection", 99)]);
+console.log(group);
+group.hat = new SportProduct("Jumper", "Summer Collection", 55);
+console.log(group.hat);
+Object.keys(group).forEach(k => console.log(`property name is ${k}`));
+console.log(Object.keys(group));
