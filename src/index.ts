@@ -1,37 +1,37 @@
 interface Person {
     name: string;
     getDetails(): string;
-    
-    dogName?: string;
-    getDogDetails?(): string;
+}
+
+interface Product {
+    name: string;
+    price: number;
 }
 
 
-
-class Customer implements Person {
+class Employee implements Person {
     //constructor function
-    constructor( public readonly id: string, public name: string, public city: string, public creditLimit: number, public music: string) {};
+    constructor(public name: string, public company: string) {};
     //implements person interface function
     getDetails() {
-        return `${this.name} has got a credit limit of ${this.creditLimit}`;
+        return `${this.name} works for ${this.company}`;
     }
-    //implements dogowner interface function
-    // getDogDetails() {
-    //     return `${this.name} owns a dog`;
-    // }
 }
 
 
-let alice = new Customer("aliceb", "Alice Barley", "Berlin", 500, "Classic");
+class Shoe implements Product {
+    //constructor function
+    constructor(public name: string, public category: string, public price: number) {};
+
+}
+
+let data: (Person | Product)[] = [new Employee("Zara Howard", "Jazz Club"), new Employee("Alice Barley", "POSK"), new Shoe("Red shoes", "Trainers", 500) ];
 
 
-let data: Person[] = [new Customer("zarah", "Zara Howard", "Sidney", 23000, "Jazz"), alice ];
-
-//access to properties: getDetails(), name
 data.forEach(item => {
-    console.log(item.getDetails());
-    if(item.getDogDetails) {
-        console.log(item.getDogDetails());
+    //check if property exists on item
+    if("getDetails" in item) {
+        console.log(item.getDetails());
     }
 })
     

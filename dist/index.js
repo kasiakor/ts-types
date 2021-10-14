@@ -1,24 +1,28 @@
-class Customer {
+class Employee {
     //constructor function
-    constructor(id, name, city, creditLimit, music) {
-        this.id = id;
+    constructor(name, company) {
         this.name = name;
-        this.city = city;
-        this.creditLimit = creditLimit;
-        this.music = music;
+        this.company = company;
     }
     ;
     //implements person interface function
     getDetails() {
-        return `${this.name} has got a credit limit of ${this.creditLimit}`;
+        return `${this.name} works for ${this.company}`;
     }
 }
-let alice = new Customer("aliceb", "Alice Barley", "Berlin", 500, "Classic");
-let data = [new Customer("zarah", "Zara Howard", "Sidney", 23000, "Jazz"), alice];
-//access to properties: getDetails(), name
+class Shoe {
+    //constructor function
+    constructor(name, category, price) {
+        this.name = name;
+        this.category = category;
+        this.price = price;
+    }
+    ;
+}
+let data = [new Employee("Zara Howard", "Jazz Club"), new Employee("Alice Barley", "POSK"), new Shoe("Red shoes", "Trainers", 500)];
 data.forEach(item => {
-    console.log(item.getDetails());
-    if (item.getDogDetails) {
-        console.log(item.getDogDetails());
+    //check if property exists on item
+    if ("getDetails" in item) {
+        console.log(item.getDetails());
     }
 });
