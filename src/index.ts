@@ -27,7 +27,7 @@ class DataCollection<T> {
     }
 }
 
-let poepleCollection = new DataCollection(people);
+let poepleCollection = new DataCollection<Person>(people);
 
 poepleCollection.add(new Person("Ela", "Boston"));
 //console.log(`Names: ${poepleCollection.getNames().join(", ")}`);
