@@ -13,17 +13,20 @@ class DataCollection {
     add(newItem) {
         this.items.push(newItem);
     }
-    // getNames(): string[] {
-    //     return this.items.map(item => item.name);
-    // }
+    getNames() {
+        return this.items.map(item => item.name);
+    }
     getItem(index) {
         return this.items[index];
     }
 }
 let poepleCollection = new DataCollection(people);
 poepleCollection.add(new dataTypes_1.Person("Ela", "Boston"));
-//console.log(`Names: ${poepleCollection.getNames().join(", ")}`);
+console.log(`Names: ${poepleCollection.getNames().join(", ")}`);
 let firstName = poepleCollection.getItem(2);
-//if(firstName instanceof Person) {
 console.log(`Person called ${firstName.name} lives in ${firstName.city}`);
-//}
+let productsCollection = new DataCollection(products);
+productsCollection.add(new dataTypes_1.Product("Coat", 99));
+console.log(`Names: ${productsCollection.getNames().join(", ")}`);
+let productItem = productsCollection.getItem(2);
+console.log(`Person called ${productItem.name} lives in ${productItem.price}`);
