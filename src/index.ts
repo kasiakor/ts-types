@@ -1,39 +1,37 @@
-interface Product {
-    name: string;
-    price: number;
+import {Person, Product} from "./dataTypes";
+
+let people = [new Person("Ala", "New York"), new Person("Ola", "Los Angeles")];
+let products = [new Product("Ball", 35), new Product("Shoes", 55)];
+
+
+//[...people, ...products].forEach(item => console.log(`Item name is ${item.name}`));
+
+
+class PeopleCollection {
+    private items: Person[]=[];
+    constructor(initialItems: Person[]) {
+        this.items.push(...initialItems)
+    }
+
+    add(newItem: Person) {
+        this.items.push(newItem);
+    }
+
+    getNames(): string[] {
+        return this.items.map(item => item.name);
+    }
+
+    getItem(index: number) {
+        return this.items[index];
+    }
 }
 
+let poepleCollection = new PeopleCollection(people);
+
+poepleCollection.add(new Person("Ela", "Boston"));
+console.log(`Names: ${poepleCollection.getNames().join(", ")}`);
 
 
-class SportProduct implements Product {
-    //constructor function
-    constructor(public name: string, public category: string, public price: number) {};
+let firstName = poepleCollection.getItem(2);
 
-}
-
-class ProductGroup {
-    //constructor function
-    constructor(...initialProducts: [string, Product][]) {
-        initialProducts.forEach(p => this[p[0]]= p[1]);
-    };
-    [propertyName: string]: Product;
-}
-
-let group = new ProductGroup(["Shirt", new SportProduct("Polo", "Winter Collection", 99)]);
-console.log(group);
-
-group.hat = new SportProduct("Jumper", "Summer Collection", 55);
-console.log(group.hat);
-
-Object.keys(group).forEach(k => console.log(`property name is ${k}`))
-
-console.log(Object.keys(group));
-    
-
-
-
-
-
-
-
-   
+console.log(`Person called ${firstName.name} lives in ${firstName.city}`);

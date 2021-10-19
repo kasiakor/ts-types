@@ -3,7 +3,8 @@
    "target": "es2018",
    "outDir": "./dist",
    "rootDir": "./src",
-   "declaration": true
+   "declaration": true,
+   "module": "CommonJS"
    //"strictNullChecks": true,
    //"suppressExcessPropertyErrors": true
    //"noImplicitReturns": true,
