@@ -6,14 +6,15 @@ let products = [new Product("Ball", 35), new Product("Shoes", 55)];
 
 //[...people, ...products].forEach(item => console.log(`Item name is ${item.name}`));
 
+type dataType = Person | Product;
 
-class PeopleCollection {
-    private items: Person[]=[];
-    constructor(initialItems: Person[]) {
+class DataCollection {
+    private items: dataType[]=[];
+    constructor(initialItems: dataType[]) {
         this.items.push(...initialItems)
     }
 
-    add(newItem: Person) {
+    add(newItem: dataType) {
         this.items.push(newItem);
     }
 
@@ -26,7 +27,7 @@ class PeopleCollection {
     }
 }
 
-let poepleCollection = new PeopleCollection(people);
+let poepleCollection = new DataCollection(people);
 
 poepleCollection.add(new Person("Ela", "Boston"));
 console.log(`Names: ${poepleCollection.getNames().join(", ")}`);
@@ -34,4 +35,7 @@ console.log(`Names: ${poepleCollection.getNames().join(", ")}`);
 
 let firstName = poepleCollection.getItem(2);
 
-console.log(`Person called ${firstName.name} lives in ${firstName.city}`);
+if(firstName instanceof Person) {
+    console.log(`Person called ${firstName.name} lives in ${firstName.city}`);
+}
+
